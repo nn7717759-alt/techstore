@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStore - Siêu Thị Thiết Bị Công Nghệ Chính Hãng (HUBT)</title>
+    <style>
+        :root {
+            --primary: #0284c7;
+            --primary-dark: #0369a1;
+            --primary-light: #e0f2fe;
+            --secondary: #0f172a;
+            --accent: #f97316;
+            --accent-hover: #ea580c;
+            --success: #16a34a;
+            --danger: #e11d48;
+            --warning: #d97706;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-500: #64748b;
+            --gray-700: #334155;
+            --gray-900: #0f172a;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 12px 20px -3px rgba(0, 0, 0, 0.12), 0 4px 6px -4px rgba(0, 0, 0, 0.08);
+            --radius: 10px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background: #f8fafc; color: var(--gray-900); line-height: 1.6; }
+        a { color: inherit; text-decoration: none; }
+        .container { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
+
+        /* TOP PROMO BAR */
+        .top-promo { background: #0f172a; color: #94a3b8; font-size: 13px; padding: 7px 0; text-align: center; }
+        .top-promo span { color: #38bdf8; font-weight: 700; margin-right: 8px; }
+
+        /* NAVBAR */
+        .navbar { background: #ffffff; box-shadow: var(--shadow-sm); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid var(--gray-200); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; max-width: 1240px; margin: 0 auto; }
+        .logo { font-size: 26px; font-weight: 900; color: var(--primary); display: flex; align-items: center; gap: 8px; cursor: pointer; letter-spacing: -0.5px; }
+        .logo span { color: var(--secondary); }
+        .nav-links { display: flex; list-style: none; gap: 15px; align-items: center; }
+        .nav-link { font-weight: 700; color: var(--gray-700); cursor: pointer; padding: 8px 16px; border-radius: 8px; transition: all 0.2s; font-size: 14px; }
+        .nav-link:hover, .nav-link.active { color: var(--primary); background: var(--primary-light); }
+        
+        .nav-actions { display: flex; align-items: center; gap: 14px; }
+        .search-box { display: flex; background: var(--gray-100); border-radius: 99px; padding: 4px 6px 4px 14px; border: 1.5px solid var(--gray-200); transition: border 0.2s; }
+        .search-box:focus-within { border-color: var(--primary); background: #fff; box-shadow: 0 0 0 3px var(--primary-light); }
+        .search-box input { border: none; background: transparent; padding: 6px 8px; outline: none; font-size: 14px; width: 220px; }
+        .search-box button { border: none; background: var(--primary); color: white; padding: 6px 14px; border-radius: 99px; cursor: pointer; font-weight: 700; font-size: 13px; }
+
+        .cart-btn { background: var(--primary-light); color: var(--primary-dark); padding: 8px 16px; border-radius: 99px; font-weight: 800; display: flex; align-items: center; gap: 8px; cursor: pointer; border: 1px solid #bae6fd; transition: transform 0.15s; }
+        .cart-btn:hover { transform: scale(1.03); }
+        .cart-badge { background: var(--danger); color: white; font-size: 12px; border-radius: 99px; padding: 2px 7px; font-weight: 800; }
+        .admin-toggle-btn { background: linear-gradient(135deg, #1e293b, #0f172a); color: white; padding: 8px 16px; border-radius: 99px; font-size: 13px; font-weight: 700; cursor: pointer; border: 1px solid #334155; }
+        .admin-toggle-btn:hover { background: #000; }
+
+        /* TRUST BADGES BAR */
+        .trust-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin: 25px 0 35px 0; }
+        .trust-item { background: white; padding: 16px; border-radius: var(--radius); border: 1px solid var(--gray-200); display: flex; align-items: center; gap: 12px; box-shadow: var(--shadow-sm); }
+        .trust-icon { font-size: 26px; }
+        .trust-title { font-size: 13px; font-weight: 800; color: var(--gray-900); }
+        .trust-desc { font-size: 12px; color: var(--gray-500); }
+
+        /* HERO BANNER */
+        .hero { background: radial-gradient(circle at top right, #0369a1, #0c4a6e); color: white; padding: 50px 40px; margin-top: 20px; border-radius: 16px; box-shadow: var(--shadow-lg); position: relative; overflow: hidden; }
+        .hero-content { display: flex; justify-content: space-between; align-items: center; gap: 30px; position: relative; z-index: 2; }
+        .hero-badge { display: inline-block; background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(5px); color: #7dd3fc; padding: 4px 14px; border-radius: 99px; font-size: 12px; font-weight: 800; margin-bottom: 15px; letter-spacing: 0.5px; }
+        .hero-text h1 { font-size: 40px; font-weight: 900; margin-bottom: 12px; line-height: 1.15; }
+        .hero-text p { font-size: 16px; opacity: 0.9; margin-bottom: 24px; max-width: 550px; }
+        .hero-btn { display: inline-block; background: var(--accent); color: white; padding: 13px 30px; border-radius: 99px; font-weight: 800; cursor: pointer; box-shadow: 0 4px 14px rgba(249, 115, 22, 0.4); transition: transform 0.2s, background 0.2s; }
+        .hero-btn:hover { background: var(--accent-hover); transform: translateY(-2px); }
+        .hero-img { max-height: 250px; border-radius: 12px; box-shadow: 0 15px 30px rgba(0,0,0,0.4); border: 2px solid rgba(255,255,255,0.2); }
+
+        /* FILTERS & SORTING */
+        .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .section-title { font-size: 22px; font-weight: 900; color: var(--secondary); position: relative; padding-left: 14px; }
+        .section-title::before { content: ''; position: absolute; left: 0; top: 4px; bottom: 4px; width: 4.5px; background: var(--primary); border-radius: 4px; }
+        
+        .filter-controls { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; flex-wrap: wrap; gap: 15px; }
+        .categories-bar { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 5px; }
+        .cat-pill { background: white; padding: 8px 18px; border-radius: 99px; font-weight: 700; font-size: 13px; color: var(--gray-700); border: 1.5px solid var(--gray-200); cursor: pointer; white-space: nowrap; transition: all 0.2s; }
+        .cat-pill:hover, .cat-pill.active { background: var(--primary); color: white; border-color: var(--primary); box-shadow: 0 2px 8px rgba(2, 132, 199, 0.3); }
+
+        .sort-select { padding: 8px 14px; border-radius: 8px; border: 1.5px solid var(--gray-200); background: white; font-size: 13px; font-weight: 700; outline: none; cursor: pointer; }
+
+        /* PRODUCT CARDS */
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px; margin-bottom: 50px; }
+        .product-card { background: white; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--gray-200); display: flex; flex-direction: column; transition: all 0.25s ease; position: relative; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: #cbd5e1; }
+        
+        .discount-badge { position: absolute; top: 12px; left: 12px; background: var(--danger); color: white; font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: 6px; z-index: 2; box-shadow: 0 2px 5px rgba(225, 29, 72, 0.4); }
+        .installment-badge { position: absolute; top: 12px; right: 12px; background: rgba(15, 23, 42, 0.85); color: #38bdf8; font-size: 10px; font-weight: 800; padding: 3px 8px; border-radius: 6px; z-index: 2; }
+
+        .product-img-box { height: 190px; width: 100%; overflow: hidden; background: #f1f5f9; position: relative; cursor: pointer; }
+        .product-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
+        .product-card:hover .product-img { transform: scale(1.06); }
+
+        .product-info { padding: 18px; display: flex; flex-direction: column; flex-grow: 1; }
+        .product-cat { font-size: 11px; text-transform: uppercase; font-weight: 800; color: var(--primary); margin-bottom: 6px; letter-spacing: 0.5px; }
+        .product-name { font-size: 15px; font-weight: 800; color: var(--gray-900); margin-bottom: 6px; height: 42px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; cursor: pointer; line-height: 1.35; }
+        .product-name:hover { color: var(--primary); }
+
+        .product-rating { display: flex; align-items: center; gap: 4px; font-size: 11px; color: #f59e0b; margin-bottom: 8px; }
+        .product-rating span { color: var(--gray-500); font-weight: 600; margin-left: 4px; }
+
+        .price-box { margin-bottom: 14px; }
+        .product-price { font-size: 18px; font-weight: 900; color: var(--danger); }
+        .product-old-price { font-size: 12px; text-decoration: line-through; color: var(--gray-500); margin-left: 6px; }
+
+        .product-footer { margin-top: auto; display: flex; gap: 8px; }
+        .btn { display: inline-flex; justify-content: center; align-items: center; padding: 9px 14px; border-radius: 8px; font-weight: 700; font-size: 13px; cursor: pointer; border: none; transition: 0.2s; }
+        .btn-primary { background: var(--primary); color: white; flex-grow: 1; }
+        .btn-primary:hover { background: var(--primary-dark); }
+        .btn-secondary { background: var(--gray-100); color: var(--gray-800); }
+        .btn-secondary:hover { background: var(--gray-200); }
+        .btn-danger { background: var(--danger); color: white; }
+        .btn-success { background: var(--success); color: white; }
+        .btn-sm { padding: 6px 12px; font-size: 12px; }
+
+        /* TABLES & FORMS */
+        .table-card { background: white; border-radius: var(--radius); box-shadow: var(--shadow-sm); overflow: hidden; margin-bottom: 25px; border: 1px solid var(--gray-200); }
+        table { width: 100%; border-collapse: collapse; text-align: left; }
+        th { background: #f8fafc; padding: 13px 16px; font-size: 13px; font-weight: 800; color: var(--gray-700); border-bottom: 2px solid var(--gray-200); }
+        td { padding: 14px 16px; border-top: 1px solid var(--gray-200); vertical-align: middle; font-size: 14px; }
+
+        .form-card { background: white; padding: 25px; border-radius: var(--radius); box-shadow: var(--shadow-sm); border: 1px solid var(--gray-200); }
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; margin-bottom: 6px; font-weight: 700; font-size: 13px; color: var(--gray-700); }
+        .form-control { width: 100%; padding: 10px 14px; border: 1.5px solid var(--gray-300); border-radius: 8px; font-size: 14px; outline: none; }
+        .form-control:focus { border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-light); }
+
+        /* MODAL */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.65); backdrop-filter: blur(4px); z-index: 1000; align-items: center; justify-content: center; padding: 20px; }
+        .modal.active { display: flex; }
+        .modal-content { background: white; border-radius: 12px; max-width: 680px; width: 100%; max-height: 90vh; overflow-y: auto; padding: 30px; position: relative; box-shadow: var(--shadow-lg); }
+        .close-modal { position: absolute; top: 18px; right: 20px; font-size: 24px; cursor: pointer; color: var(--gray-500); }
+
+        /* TOAST NOTIFICATION */
+        .toast { position: fixed; bottom: 30px; right: 30px; background: #0f172a; color: white; padding: 14px 22px; border-radius: 10px; box-shadow: var(--shadow-lg); font-size: 14px; font-weight: 700; display: none; z-index: 2000; border-left: 5px solid var(--success); }
+
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        /* FOOTER */
+        .footer { background: #0f172a; color: white; padding: 50px 0 25px 0; margin-top: 70px; font-size: 14px; border-top: 3px solid var(--primary); }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 30px; margin-bottom: 35px; }
+        .footer-col h4 { font-size: 15px; margin-bottom: 16px; color: #38bdf8; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; }
+        .footer-col p { color: #94a3b8; margin-bottom: 8px; font-size: 13px; line-height: 1.6; }
+        .footer-bottom { text-align: center; padding-top: 20px; border-top: 1px solid #1e293b; font-size: 13px; color: #64748b; }
+
+        @media (max-width: 900px) {
+            .trust-bar { grid-template-columns: 1fr 1fr; }
+            .hero-content { flex-direction: column; text-align: center; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .nav-container { flex-direction: column; gap: 12px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="top-promo">
+    <div class="container">
+        <span>🔥 ƯU ĐÃI ĐỘC QUYỀN:</span> Giảm ngay 10% cho sinh viên HUBT & Miễn phí vận chuyển toàn quốc cho mọi đơn hàng hôm nay!
+    </div>
+</div>
+
+<!-- THANH MENU HEADER -->
+<header class="navbar">
+    <div class="nav-container">
+        <div class="logo" onclick="switchTab('home')">
+            💻 Tech<span>Store</span>
+        </div>
+
+        <ul class="nav-links">
+            <li class="nav-link active" onclick="switchTab('home')">Trang chủ</li>
+            <li class="nav-link" onclick="switchTab('products')">Sản phẩm (18+)</li>
+            <li class="nav-link" onclick="switchTab('contact')">Liên hệ HUBT</li>
+        </ul>
+
+        <div class="nav-actions">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Tìm laptop, chuột, phím..." onkeyup="handleSearch(event)">
+                <button onclick="doSearch()">Tìm</button>
+            </div>
+
+            <div class="cart-btn" onclick="switchTab('cart')">
+                🛒 Giỏ hàng
+                <span class="cart-badge" id="cartBadge">0</span>
+            </div>
+
+            <button class="admin-toggle-btn" onclick="switchTab('admin')">⚙ Quản trị Admin</button>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+
+    <!-- ================= TAB 1: TRANG CHỦ ================= -->
+    <div id="tab-home" class="tab-content active">
+        <!-- BANNER HERO -->
+        <div class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <span class="hero-badge">⚡ CHÍNH HÃNG 100% - BẢO HÀNH 24 THÁNG</span>
+                    <h1>Thế Giới Công Nghệ Đỉnh Cao TechStore</h1>
+                    <p>Khám phá bộ sưu tập Laptop Gaming, Laptop Văn Phòng cao cấp, Bàn phím cơ & Chuột công nghệ giá ưu đãi nhất cho sinh viên.</p>
+                    <div class="hero-btn" onclick="switchTab('products')">Mua Sắm Ngay &rarr;</div>
+                </div>
+                <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=500" alt="TechStore Hero" class="hero-img">
+            </div>
+        </div>
+
+        <!-- 4 TIÊU CHÍ AN TÂM -->
+        <div class="trust-bar">
+            <div class="trust-item">
+                <div class="trust-icon">🚚</div>
+                <div>
+                    <div class="trust-title">Giao Hàng Miễn Phí</div>
+                    <div class="trust-desc">Giao nhanh toàn quốc 2-3 ngày</div>
+                </div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">🛡</div>
+                <div>
+                    <div class="trust-title">Bảo Hành Chính Hãng</div>
+                    <div class="trust-desc">12 - 24 tháng tại hãng</div>
+                </div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">🔄</div>
+                <div>
+                    <div class="trust-title">Đổi Mới 30 Ngày</div>
+                    <div class="trust-desc">1 đổi 1 nếu lỗi phần cứng</div>
+                </div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">💳</div>
+                <div>
+                    <div class="trust-title">Hỗ Trợ Trả Góp 0%</div>
+                    <div class="trust-desc">Thủ tục nhanh qua thẻ tín dụng</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-header">
+            <h2 class="section-title">Danh mục công nghệ</h2>
+        </div>
+        <div class="categories-bar" id="homeCategories"></div>
+
+        <div class="section-header" style="margin-top: 35px;">
+            <h2 class="section-title">Sản phẩm bán chạy nhất</h2>
+            <button class="btn btn-secondary btn-sm" onclick="switchTab('products')">Xem tất cả 18+ sản phẩm &rarr;</button>
+        </div>
+        <div class="product-grid" id="homeProductGrid"></div>
+    </div>
+
+    <!-- ================= TAB 2: TẤT CẢ SẢN PHẨM ================= -->
+    <div id="tab-products" class="tab-content">
+        <div class="section-header" style="margin-top: 25px;">
+            <h2 class="section-title" id="productsPageTitle">Tất cả sản phẩm công nghệ</h2>
+        </div>
+
+        <!-- BỘ LỌC VÀ SẮP XẾP -->
+        <div class="filter-controls">
+            <div class="categories-bar" id="productsPageCategories"></div>
+            <div>
+                <select class="sort-select" onchange="sortProducts(this.value)">
+                    <option value="default">Sắp xếp: Mặc định</option>
+                    <option value="price-asc">Giá: Thấp đến Cao</option>
+                    <option value="price-desc">Giá: Cao đến Thấp</option>
+                    <option value="name">Tên: A &rarr; Z</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="product-grid" id="allProductGrid"></div>
+    </div>
+
+    <!-- ================= TAB 3: GIỎ HÀNG & THANH TOÁN ================= -->
+    <div id="tab-cart" class="tab-content" style="margin-top: 25px;">
+        <h2 class="section-title" style="margin-bottom: 20px;">🛒 Giỏ Hàng & Thanh Toán Đơn Hàng</h2>
+        
+        <div id="cartEmptyState" style="display: none; text-align: center; padding: 70px 20px; background: white; border-radius: 12px; border: 1px solid var(--gray-200);">
+            <div style="font-size: 50px; margin-bottom: 10px;">🛍</div>
+            <p style="font-size: 17px; color: var(--gray-700); font-weight: 700; margin-bottom: 8px;">Giỏ hàng của bạn đang trống!</p>
+            <p style="font-size: 13px; color: var(--gray-500); margin-bottom: 20px;">Hãy dạo qua danh mục sản phẩm để chọn món đồ công nghệ bạn ưng ý nhất nhé.</p>
+            <button class="btn btn-primary" onclick="switchTab('products')" style="padding: 12px 28px;">Mua sắm ngay</button>
+        </div>
+
+        <div id="cartContentWrapper" style="display: grid; grid-template-columns: 1.4fr 1fr; gap: 30px;">
+            <div>
+                <div class="table-card">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ảnh</th>
+                                <th>Sản phẩm</th>
+                                <th>Đơn giá</th>
+                                <th style="width: 110px; text-align: center;">Số lượng</th>
+                                <th>Thành tiền</th>
+                                <th style="text-align: center;">Xóa</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cartTableBody"></tbody>
+                    </table>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                    <button class="btn btn-secondary" onclick="switchTab('products')">&larr; Chọn thêm sản phẩm</button>
+                    <button class="btn btn-secondary" onclick="clearCart()" style="color: var(--danger);">Xóa sạch giỏ hàng</button>
+                </div>
+            </div>
+
+            <!-- FORM ĐẶT HÀNG (CHECKOUT) -->
+            <div>
+                <div class="form-card">
+                    <h3 style="margin-bottom: 15px; color: var(--secondary); font-weight: 800;">📦 Thông tin giao hàng & Thanh toán</h3>
+                    
+                    <div style="background: var(--gray-50); padding: 14px; border-radius: 8px; margin-bottom: 16px; border: 1px dashed var(--gray-300);">
+                        <div style="display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 6px;">
+                            <span>Tạm tính giỏ hàng:</span>
+                            <span id="cartSubtotalDisplay">0 ₫</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 6px;">
+                            <span>Phí vận chuyển:</span>
+                            <span style="color: var(--success); font-weight: bold;">MIỄN PHÍ</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 17px; font-weight: 900; color: var(--danger); border-top: 1px solid var(--gray-200); padding-top: 8px; margin-top: 8px;">
+                            <span>Tổng thanh toán:</span>
+                            <span id="cartTotalDisplay">0 ₫</span>
+                        </div>
+                    </div>
+
+                    <form onsubmit="handleCheckout(event)">
+                        <div class="form-group">
+                            <label>Họ và tên người nhận (*)</label>
+                            <input type="text" id="orderCustomerName" class="form-control" placeholder="Ví dụ: Nguyễn Văn An" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Số điện thoại (*)</label>
+                            <input type="text" id="orderCustomerPhone" class="form-control" placeholder="Ví dụ: 0912345678" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Địa chỉ nhận hàng cụ thể (*)</label>
+                            <textarea id="orderCustomerAddress" class="form-control" rows="2" placeholder="Số nhà, ngõ/đường, phường/xã, quận/huyện..." required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Hình thức thanh toán</label>
+                            <select id="orderPaymentMethod" class="form-control">
+                                <option value="Thanh toán khi nhận hàng (COD)">Thanh toán khi nhận hàng (COD - Tiền mặt)</option>
+                                <option value="Chuyển khoản ngân hàng (QR Code)">Chuyển khoản ngân hàng (QR Code / Mobile Banking)</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 13px; font-size: 15px;">✓ Xác Nhận Đặt Hàng Ngay</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= TAB 4: LIÊN HỆ ================= -->
+    <div id="tab-contact" class="tab-content" style="margin-top: 25px;">
+        <h2 class="section-title" style="margin-bottom: 10px;">Liên Hệ & Góp Ý</h2>
+        <p style="color: var(--gray-500); margin-bottom: 25px;">Kênh tiếp nhận hỗ trợ dành riêng cho đồ án công nghệ thông tin HUBT.</p>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+            <div class="form-card">
+                <h3 style="margin-bottom: 15px; color: var(--primary); font-weight: 800;">Cửa Hàng TechStore HUBT</h3>
+                <p style="margin-bottom: 12px;">📍 <strong>Địa chỉ:</strong> Tòa nhà Khoa CNTT - Trường Đại học Kinh doanh và Công nghệ Hà Nội, Số 29A Ngõ 124 Vĩnh Tuy, Hai Bà Trưng, Hà Nội.</p>
+                <p style="margin-bottom: 12px;">📞 <strong>Điện thoại:</strong> 0243.633.6513</p>
+                <p style="margin-bottom: 12px;">✉ <strong>Email:</strong> hotro@techstore-hubt.edu.vn</p>
+                <p style="margin-bottom: 12px;">⏰ <strong>Giờ làm việc:</strong> 8h00 - 21h30 (Thứ 2 - Chủ Nhật)</p>
+            </div>
+
+            <div class="form-card">
+                <h3 style="margin-bottom: 15px; color: var(--secondary); font-weight: 800;">Gửi tin nhắn trực tuyến</h3>
+                <form onsubmit="handleContact(event)">
+                    <div class="form-group">
+                        <label>Họ và tên (*)</label>
+                        <input type="text" class="form-control" id="contactName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email (*)</label>
+                        <input type="email" class="form-control" id="contactEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Nội dung góp ý / thắc mắc (*)</label>
+                        <textarea class="form-control" id="contactMsg" rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 11px;">Gửi Tin Nhắn Ngay</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= TAB 5: QUẢN TRỊ ADMIN (CRUD ĐẦY ĐỦ) ================= -->
+    <div id="tab-admin" class="tab-content" style="margin-top: 25px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h2 class="section-title">⚙ BẢNG ĐIỀU KHIỂN QUẢN TRỊ (ADMIN CRUD)</h2>
+            <button class="btn btn-secondary btn-sm" onclick="resetDefaultData()">↺ Khôi phục dữ liệu 18 sản phẩm gốc</button>
+        </div>
+
+        <!-- THẺ THỐNG KÊ -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; margin-bottom: 25px;">
+            <div style="background: white; padding: 20px; border-radius: 10px; border-left: 5px solid var(--primary); box-shadow: var(--shadow-sm);">
+                <div style="font-size: 12px; font-weight: 800; color: var(--gray-500); text-transform: uppercase;">Tổng Sản Phẩm Trong Kho</div>
+                <div style="font-size: 28px; font-weight: 900; color: var(--secondary); margin-top: 6px;" id="statTotalProducts">0</div>
+            </div>
+            <div style="background: white; padding: 20px; border-radius: 10px; border-left: 5px solid #8b5cf6; box-shadow: var(--shadow-sm);">
+                <div style="font-size: 12px; font-weight: 800; color: var(--gray-500); text-transform: uppercase;">Tổng Nhóm Danh Mục</div>
+                <div style="font-size: 28px; font-weight: 900; color: var(--secondary); margin-top: 6px;" id="statTotalCategories">0</div>
+            </div>
+            <div style="background: white; padding: 20px; border-radius: 10px; border-left: 5px solid var(--warning); box-shadow: var(--shadow-sm);">
+                <div style="font-size: 12px; font-weight: 800; color: var(--gray-500); text-transform: uppercase;">Tổng Đơn Đặt Hàng</div>
+                <div style="font-size: 28px; font-weight: 900; color: var(--secondary); margin-top: 6px;" id="statTotalOrders">0</div>
+            </div>
+            <div style="background: white; padding: 20px; border-radius: 10px; border-left: 5px solid var(--success); box-shadow: var(--shadow-sm);">
+                <div style="font-size: 12px; font-weight: 800; color: var(--gray-500); text-transform: uppercase;">Doanh Thu Tạm Tính</div>
+                <div style="font-size: 24px; font-weight: 900; color: var(--success); margin-top: 6px;" id="statTotalRevenue">0 ₫</div>
+            </div>
+        </div>
+
+        <!-- QUẢN LÝ SẢN PHẨM (CRUD) -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+            <h3 style="font-weight: 800; color: var(--secondary);">1. Danh sách sản phẩm (Thêm, Sửa, Xóa)</h3>
+            <button class="btn btn-primary btn-sm" onclick="openAddProductModal()">+ Thêm Sản Phẩm Mới</button>
+        </div>
+        <div class="table-card">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 50px;">ID</th>
+                        <th style="width: 70px;">Ảnh</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Danh mục</th>
+                        <th>Giá bán</th>
+                        <th style="width: 80px; text-align: center;">Tồn kho</th>
+                        <th style="width: 160px; text-align: center;">Hành động (CRUD)</th>
+                    </tr>
+                </thead>
+                <tbody id="adminProductsTable"></tbody>
+            </table>
+        </div>
+
+        <!-- QUẢN LÝ ĐƠN HÀNG -->
+        <div style="margin-top: 35px; margin-bottom: 14px;">
+            <h3 style="font-weight: 800; color: var(--secondary);">2. Quản lý Đơn Đặt Hàng Khách Hàng</h3>
+        </div>
+        <div class="table-card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mã đơn</th>
+                        <th>Khách hàng</th>
+                        <th>SĐT</th>
+                        <th>Địa chỉ</th>
+                        <th>Tổng tiền</th>
+                        <th>Trạng thái</th>
+                        <th style="width: 170px; text-align: center;">Đổi trạng thái</th>
+                    </tr>
+                </thead>
+                <tbody id="adminOrdersTable"></tbody>
+            </table>
+        </div>
+    </div>
+
+</main>
+
+<!-- MODAL THÊM / SỬA SẢN PHẨM (ADMIN) -->
+<div class="modal" id="productModal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeProductModal()">&times;</span>
+        <h3 style="margin-bottom: 16px; font-weight: 800;" id="modalTitle">Thêm Sản Phẩm Mới</h3>
+        <form onsubmit="handleSaveProduct(event)">
+            <input type="hidden" id="prodFormId">
+            <div class="form-group">
+                <label>Tên sản phẩm (*)</label>
+                <input type="text" id="prodFormName" class="form-control" placeholder="Ví dụ: Laptop Asus ROG Strix G16" required>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                <div class="form-group">
+                    <label>Danh mục (*)</label>
+                    <select id="prodFormCategory" class="form-control" required></select>
+                </div>
+                <div class="form-group">
+                    <label>Giá bán (VNĐ) (*)</label>
+                    <input type="number" id="prodFormPrice" class="form-control" min="1000" placeholder="18500000" required>
+                </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                <div class="form-group">
+                    <label>Số lượng kho (*)</label>
+                    <input type="number" id="prodFormStock" class="form-control" min="0" value="10" required>
+                </div>
+                <div class="form-group">
+                    <label>Link ảnh (URL)</label>
+                    <input type="text" id="prodFormImage" class="form-control" placeholder="https://images.unsplash.com/...">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Mô tả chi tiết sản phẩm</label>
+                <textarea id="prodFormDesc" class="form-control" rows="3" placeholder="Thông số CPU, RAM, ổ cứng..."></textarea>
+            </div>
+            <div style="display: flex; gap: 10px; margin-top: 15px;">
+                <button type="submit" class="btn btn-primary" style="padding: 11px;">✓ Lưu Dữ Liệu</button>
+                <button type="button" class="btn btn-secondary" onclick="closeProductModal()">Hủy bỏ</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- MODAL CHI TIẾT SẢN PHẨM (USER) -->
+<div class="modal" id="detailModal">
+    <div class="modal-content" style="max-width: 680px;">
+        <span class="close-modal" onclick="closeDetailModal()">&times;</span>
+        <div style="display: grid; grid-template-columns: 1fr 1.1fr; gap: 24px;">
+            <img id="detailImg" src="" style="width: 100%; height: 280px; object-fit: cover; border-radius: 10px; border: 1px solid var(--gray-200);">
+            <div>
+                <span id="detailCat" style="font-size: 11px; font-weight: 800; color: var(--primary); text-transform: uppercase;"></span>
+                <h3 id="detailName" style="margin: 6px 0 8px 0; font-size: 20px; line-height: 1.3; font-weight: 900;"></h3>
+                <div id="detailPrice" style="font-size: 22px; font-weight: 900; color: var(--danger); margin-bottom: 12px;"></div>
+                <p id="detailStock" style="font-size: 13px; margin-bottom: 10px;"></p>
+                <p id="detailDesc" style="font-size: 13px; color: var(--gray-700); margin-bottom: 22px; line-height: 1.6;"></p>
+                <button id="detailAddBtn" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 15px;">🛒 Thêm Vào Giỏ Hàng</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="toast" id="toastBox">✓ Đã thêm sản phẩm vào giỏ hàng!</div>
+
+<!-- CHÂN TRANG FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>💻 TechStore HUBT</h4>
+                <p>Website đồ án môn học Thiết kế & Lập trình Web.</p>
+                <p>Khoa Công nghệ thông tin - Trường ĐH Kinh doanh và Công nghệ Hà Nội.</p>
+                <p>Hotline: 0243.633.6513 (Hỗ trợ 24/7)</p>
+            </div>
+            <div class="footer-col">
+                <h4>Danh mục nổi bật</h4>
+                <p>Laptop Gaming & Đồ họa</p>
+                <p>Laptop Văn phòng mỏng nhẹ</p>
+                <p>Chuột & Bàn phím cơ</p>
+                <p>Màn hình & Phụ kiện</p>
+            </div>
+            <div class="footer-col">
+                <h4>Chính sách bán hàng</h4>
+                <p>✓ Bảo hành 12 - 24 tháng chính hãng</p>
+                <p>✓ 1 đổi 1 trong 30 ngày</p>
+                <p>✓ Giao hàng hỏa tốc toàn quốc</p>
+                <p>✓ Hỗ trợ trả góp 0% lãi suất</p>
+            </div>
+            <div class="footer-col">
+                <h4>Địa chỉ liên hệ</h4>
+                <p>📍 Cơ sở Vĩnh Tuy: Số 29A Ngõ 124 Vĩnh Tuy, Q. Hai Bà Trưng, TP. Hà Nội</p>
+                <p>✉ Email: contact@techstore-hubt.edu.vn</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 TechStore - Sinh viên Khoa CNTT HUBT | Dự án hoàn thiện 100% yêu cầu phần mềm Web.
+        </div>
+    </div>
+</footer>
+
+<!-- SCRIPT XỬ LÝ TOÀN BỘ HOẠT ĐỘNG (DỮ LIỆU PHONG PHÚ 18 SẢN PHẨM) -->
+<script>
+const DB_VERSION = "2.1";
+
+const DEFAULT_CATEGORIES = [
+    { id: 1, name: "Laptop Gaming & Đồ họa" },
+    { id: 2, name: "Laptop Văn phòng mỏng nhẹ" },
+    { id: 3, name: "Chuột & Bàn phím cơ" },
+    { id: 4, name: "Màn hình & Phụ kiện cao cấp" }
+];
+
+const DEFAULT_PRODUCTS = [
+    // 1. Laptop Gaming
+    {
+        id: 1,
+        categoryId: 1,
+        name: "Laptop Asus TUF Gaming F15 FX506HF",
+        price: 18990000,
+        oldPrice: 21990000,
+        stock: 15,
+        rating: 4.9,
+        reviews: 48,
+        image: "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=500",
+        desc: "CPU Intel Core i5 12500H, RAM 16GB DDR4, SSD 512GB NVMe, RTX 3050 4GB, Màn hình 144Hz FHD sắc nét chuyên game và đồ họa 3D."
+    },
+    {
+        id: 2,
+        categoryId: 1,
+        name: "Laptop Acer Nitro 5 Tiger AN515-58",
+        price: 19500000,
+        oldPrice: 22800000,
+        stock: 10,
+        rating: 4.8,
+        reviews: 35,
+        image: "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=500",
+        desc: "Hệ thống tản nhiệt CoolBoost 2 quạt thế hệ mới, bàn phím RGB 4 vùng cực đẹp, phù hợp gaming, render video và lập trình phần mềm."
+    },
+    {
+        id: 3,
+        categoryId: 1,
+        name: "Laptop Lenovo Legion 5 Pro 16IAH7H",
+        price: 27990000,
+        oldPrice: 31500000,
+        stock: 8,
+        rating: 5.0,
+        reviews: 62,
+        image: "https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?w=500",
+        desc: "Màn hình 16 inch 2.5K 165Hz chuẩn màu 100% sRGB, Intel Core i7 12700H, RTX 3060 6GB cực mạnh, vỏ nhôm cao cấp."
+    },
+    {
+        id: 4,
+        categoryId: 1,
+        name: "Laptop MSI Katana 15 B13VFK",
+        price: 25490000,
+        oldPrice: 28900000,
+        stock: 12,
+        rating: 4.7,
+        reviews: 29,
+        image: "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=500",
+        desc: "Trang bị card đồ họa thế hệ mới RTX 4060 8GB, CPU Core i7 13620H, tản nhiệt Cooler Boost 5 độc quyền của MSI."
+    },
+
+    // 2. Laptop Văn phòng
+    {
+        id: 5,
+        categoryId: 2,
+        name: "Apple MacBook Air M2 13.6 inch (8GB/256GB)",
+        price: 24290000,
+        oldPrice: 27990000,
+        stock: 20,
+        rating: 5.0,
+        reviews: 110,
+        image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500",
+        desc: "Thiết kế nhôm nguyên khối siêu mỏng nhẹ chỉ 1.24kg, thời lượng pin 18 tiếng, màn hình Liquid Retina tai thỏ siêu đẹp."
+    },
+    {
+        id: 6,
+        categoryId: 2,
+        name: "Laptop Dell Inspiron 15 3520 (i5 1235U)",
+        price: 13490000,
+        oldPrice: 15500000,
+        stock: 25,
+        rating: 4.8,
+        reviews: 42,
+        image: "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=500",
+        desc: "Màn hình 120Hz chống chói mượt mà, bàn phím số tiện lợi nhập liệu cho sinh viên kinh tế và lập trình viên."
+    },
+    {
+        id: 7,
+        categoryId: 2,
+        name: "Laptop Asus ZenBook 14 OLED UX3402",
+        price: 21990000,
+        oldPrice: 24500000,
+        stock: 14,
+        rating: 4.9,
+        reviews: 38,
+        image: "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=500",
+        desc: "Màn hình 2.8K OLED 90Hz độ chuẩn màu điện ảnh, bàn di chuột tích hợp bàn phím số ảo NumberPad 2.0 độc quyền."
+    },
+    {
+        id: 8,
+        categoryId: 2,
+        name: "Laptop HP Pavilion 14-dv2073TU",
+        price: 14890000,
+        oldPrice: 16990000,
+        stock: 18,
+        rating: 4.7,
+        reviews: 26,
+        image: "https://images.unsplash.com/photo-1588702547919-26089e690ecc?w=500",
+        desc: "Vỏ kim loại màu vàng Gold sang trọng, loa Bang & Olufsen âm thanh vòm sống động, pin sạc nhanh 50% trong 45 phút."
+    },
+
+    // 3. Chuột & Bàn phím cơ
+    {
+        id: 9,
+        categoryId: 3,
+        name: "Chuột không dây Logitech G304 Lightspeed",
+        price: 790000,
+        oldPrice: 990000,
+        stock: 50,
+        rating: 4.9,
+        reviews: 145,
+        image: "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=500",
+        desc: "Cảm biến HERO 12.000 DPI siêu chuẩn, kết nối không dây độ trễ siêu thấp 1ms, thời lượng pin lên đến 250 giờ liên tục."
+    },
+    {
+        id: 10,
+        categoryId: 3,
+        name: "Chuột công thái học Logitech MX Master 3S",
+        price: 2190000,
+        oldPrice: 2590000,
+        stock: 22,
+        rating: 5.0,
+        reviews: 95,
+        image: "https://images.unsplash.com/photo-1615663246221-5a04bb49b563?w=500",
+        desc: "Chuột văn phòng tốt nhất thế giới, cuộn từ tính MagSpeed 1.000 dòng/giây, click êm không tiếng ồn Quiet Click."
+    },
+    {
+        id: 11,
+        categoryId: 3,
+        name: "Chuột Gaming Razer DeathAdder Essential",
+        price: 390000,
+        oldPrice: 550000,
+        stock: 40,
+        rating: 4.7,
+        reviews: 80,
+        image: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=500",
+        desc: "Form cầm công thái học huyền thoại vừa vặn lòng bàn tay, switch cơ Razer bền bỉ 10 triệu lượt bấm."
+    },
+    {
+        id: 12,
+        categoryId: 3,
+        name: "Bàn phím cơ AKKO 3087 v2 Dragon Ball Super",
+        price: 1250000,
+        oldPrice: 1550000,
+        stock: 30,
+        rating: 4.9,
+        reviews: 64,
+        image: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=500",
+        desc: "Keycap PBT Double-Shot siêu dày dặn, phối màu Goku cam xanh rực rỡ, Akko CS Switch gõ cực đầm và êm tai."
+    },
+    {
+        id: 13,
+        categoryId: 3,
+        name: "Bàn phím cơ DareU EK87 Tenkeyless Rainbow",
+        price: 490000,
+        oldPrice: 650000,
+        stock: 60,
+        rating: 4.8,
+        reviews: 210,
+        image: "https://images.unsplash.com/photo-1595225476474-87563907a212?w=500",
+        desc: "Bàn phím cơ quốc dân dành cho sinh viên, LED Rainbow rực rỡ, switch D độc quyền cảm giác gõ rất nảy."
+    },
+    {
+        id: 14,
+        categoryId: 3,
+        name: "Bàn phím cơ không dây NuPhy Air75 v2",
+        price: 2690000,
+        oldPrice: 2990000,
+        stock: 15,
+        rating: 5.0,
+        reviews: 33,
+        image: "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=500",
+        desc: "Bàn phím Low-profile siêu mỏng nhẹ, hỗ trợ 3 chế độ kết nối (Bluetooth/2.4G/Dây), tương thích hoàn hảo Mac & Windows."
+    },
+
+    // 4. Màn hình & Phụ kiện
+    {
+        id: 15,
+        categoryId: 4,
+        name: "Màn hình Dell UltraSharp U2724D (27 inch / 2K / 120Hz)",
+        price: 9990000,
+        oldPrice: 11500000,
+        stock: 10,
+        rating: 5.0,
+        reviews: 54,
+        image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500",
+        desc: "Màn hình đồ họa cao cấp nhất, tấm nền IPS Black tương phản 2000:1, tần số quét 120Hz mượt mà, cảm biến ánh sáng tự động."
+    },
+    {
+        id: 16,
+        categoryId: 4,
+        name: "Tai nghe chống ồn Sony WH-1000XM5",
+        price: 6990000,
+        oldPrice: 8490000,
+        stock: 16,
+        rating: 4.9,
+        reviews: 88,
+        image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500",
+        desc: "Công nghệ chống ồn chủ động ANC tốt nhất thế giới với 8 micro, màng loa carbon 30mm, pin trâu 30 tiếng kèm sạc nhanh."
+    },
+    {
+        id: 17,
+        categoryId: 4,
+        name: "Tai nghe Gaming HyperX Cloud II 7.1",
+        price: 1490000,
+        oldPrice: 1990000,
+        stock: 25,
+        rating: 4.9,
+        reviews: 130,
+        image: "https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=500",
+        desc: "Âm thanh vòm giả lập 7.1 chuẩn xác từng bước chân, đệm tai mút hoạt tính Memory Foam êm ái đeo cả ngày không đau tai."
+    },
+    {
+        id: 18,
+        categoryId: 4,
+        name: "Củ sạc nhanh Anker 735 GaNPrime 65W (3 cổng)",
+        price: 950000,
+        oldPrice: 1250000,
+        stock: 45,
+        rating: 4.8,
+        reviews: 75,
+        image: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=500",
+        desc: "Công nghệ sạc bán dẫn GaNPrime siêu nhỏ gọn, công suất 65W sạc cùng lúc MacBook, iPhone và iPad cực mát và an toàn."
+    }
+];
+
+const DEFAULT_ORDERS = [
+    {
+        id: 1001,
+        customerName: "Nguyễn Văn An",
+        phone: "0912345678",
+        address: "Ngõ 124 Vĩnh Tuy, Hai Bà Trưng, Hà Nội",
+        payment: "Thanh toán khi nhận hàng (COD)",
+        status: "Đang giao hàng",
+        total: 18990000,
+        items: [{ id: 1, name: "Laptop Asus TUF Gaming F15", price: 18990000, qty: 1 }]
+    },
+    {
+        id: 1002,
+        customerName: "Trần Thị Mai",
+        phone: "0988776655",
+        address: "Ký túc xá Đại học HUBT, Vĩnh Tuy, Hà Nội",
+        payment: "Chuyển khoản ngân hàng (QR Code)",
+        status: "Đã hoàn thành",
+        total: 1250000,
+        items: [{ id: 12, name: "Bàn phím cơ AKKO 3087 v2 Dragon Ball", price: 1250000, qty: 1 }]
+    }
+];
+
+// Tự động nâng cấp dữ liệu lên 18 sản phẩm nếu đang ở bản cũ
+if (localStorage.getItem('techstore_ver') !== DB_VERSION) {
+    localStorage.setItem('techstore_categories', JSON.stringify(DEFAULT_CATEGORIES));
+    localStorage.setItem('techstore_products', JSON.stringify(DEFAULT_PRODUCTS));
+    localStorage.setItem('techstore_orders', JSON.stringify(DEFAULT_ORDERS));
+    localStorage.setItem('techstore_ver', DB_VERSION);
+}
+
+let categories = JSON.parse(localStorage.getItem('techstore_categories')) || DEFAULT_CATEGORIES;
+let products = JSON.parse(localStorage.getItem('techstore_products')) || DEFAULT_PRODUCTS;
+let orders = JSON.parse(localStorage.getItem('techstore_orders')) || DEFAULT_ORDERS;
+let cart = JSON.parse(localStorage.getItem('techstore_cart')) || [];
+
+function saveAll() {
+    localStorage.setItem('techstore_categories', JSON.stringify(categories));
+    localStorage.setItem('techstore_products', JSON.stringify(products));
+    localStorage.setItem('techstore_orders', JSON.stringify(orders));
+    localStorage.setItem('techstore_cart', JSON.stringify(cart));
+}
+
+function resetDefaultData() {
+    if (confirm("Khôi phục toàn bộ danh sách 18 sản phẩm, danh mục và đơn hàng về mặc định ban đầu?")) {
+        categories = DEFAULT_CATEGORIES;
+        products = DEFAULT_PRODUCTS;
+        orders = DEFAULT_ORDERS;
+        cart = [];
+        saveAll();
+        renderAll();
+        showToast("✓ Đã khôi phục dữ liệu 18 sản phẩm thành công!");
+    }
+}
+
+function formatVND(num) {
+    return new Intl.NumberFormat('vi-VN').format(num) + ' ₫';
+}
+
+function showToast(msg) {
+    const t = document.getElementById('toastBox');
+    t.innerText = msg;
+    t.style.display = 'block';
+    setTimeout(() => { t.style.display = 'none'; }, 2600);
+}
+
+// CHUYỂN TAB
+function switchTab(tabName) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('active'));
+
+    const targetTab = document.getElementById('tab-' + tabName);
+    if (targetTab) targetTab.classList.add('active');
+
+    if (tabName === 'home') document.querySelectorAll('.nav-link')[0]?.classList.add('active');
+    if (tabName === 'products') document.querySelectorAll('.nav-link')[1]?.classList.add('active');
+    if (tabName === 'contact') document.querySelectorAll('.nav-link')[2]?.classList.add('active');
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    renderAll();
+}
+
+// BỘ LỌC VÀ HIỂN THỊ
+let selectedCatId = 0;
+let searchKeyword = '';
+let currentSort = 'default';
+
+function renderCategories() {
+    const homeCatBox = document.getElementById('homeCategories');
+    const prodCatBox = document.getElementById('productsPageCategories');
+
+    let html = `<div class="cat-pill ${selectedCatId === 0 ? 'active' : ''}" onclick="filterCategory(0)">Tất cả (18)</div>`;
+    categories.forEach(c => {
+        const count = products.filter(p => p.categoryId === c.id).length;
+        html += `<div class="cat-pill ${selectedCatId === c.id ? 'active' : ''}" onclick="filterCategory(${c.id})">${c.name} (${count})</div>`;
+    });
+
+    if (homeCatBox) homeCatBox.innerHTML = html;
+    if (prodCatBox) prodCatBox.innerHTML = html;
+
+    const modalSelect = document.getElementById('prodFormCategory');
+    if (modalSelect) {
+        modalSelect.innerHTML = categories.map(c => `<option value="${c.id}">${c.name}</option>`).join('');
+    }
+}
+
+function filterCategory(catId) {
+    selectedCatId = catId;
+    searchKeyword = '';
+    renderCategories();
+    renderProducts();
+}
+
+function sortProducts(val) {
+    currentSort = val;
+    renderProducts();
+}
+
+function handleSearch(e) {
+    if (e.key === 'Enter') doSearch();
+}
+
+function doSearch() {
+    searchKeyword = document.getElementById('searchInput').value.trim().toLowerCase();
+    switchTab('products');
+    renderProducts();
+}
+
+function renderProducts() {
+    let filtered = [...products];
+
+    if (selectedCatId > 0) {
+        filtered = filtered.filter(p => p.categoryId === selectedCatId);
+    }
+    if (searchKeyword) {
+        filtered = filtered.filter(p => p.name.toLowerCase().includes(searchKeyword) || p.desc.toLowerCase().includes(searchKeyword));
+    }
+
+    // Sắp xếp
+    if (currentSort === 'price-asc') filtered.sort((a, b) => a.price - b.price);
+    if (currentSort === 'price-desc') filtered.sort((a, b) => b.price - a.price);
+    if (currentSort === 'name') filtered.sort((a, b) => a.name.localeCompare(b.name));
+
+    const renderCard = (p) => {
+        const cat = categories.find(c => c.id === p.categoryId);
+        const discountPercent = p.oldPrice ? Math.round((1 - p.price / p.oldPrice) * 100) : 10;
+        return `
+            <div class="product-card">
+                <span class="discount-badge">-${discountPercent}%</span>
+                <span class="installment-badge">Trả góp 0%</span>
+                <div class="product-img-box" onclick="openDetailModal(${p.id})">
+                    <img src="${p.image || 'https://via.placeholder.com/400x300'}" alt="${p.name}" class="product-img">
+                </div>
+                <div class="product-info">
+                    <span class="product-cat">${cat ? cat.name : 'Công nghệ'}</span>
+                    <div class="product-name" onclick="openDetailModal(${p.id})" title="${p.name}">${p.name}</div>
+                    <div class="product-rating">
+                        ★★★★★ <span>${p.rating || 4.9} (${p.reviews || 25})</span>
+                    </div>
+                    <div class="price-box">
+                        <span class="product-price">${formatVND(p.price)}</span>
+                        ${p.oldPrice ? `<span class="product-old-price">${formatVND(p.oldPrice)}</span>` : ''}
+                    </div>
+                    <div class="product-footer">
+                        <button class="btn btn-secondary btn-sm" onclick="openDetailModal(${p.id})">Chi tiết</button>
+                        <button class="btn btn-primary btn-sm" onclick="addToCart(${p.id})">🛒 Thêm giỏ</button>
+                    </div>
+                </div>
+            </div>
+        `;
+    };
+
+    const homeGrid = document.getElementById('homeProductGrid');
+    const allGrid = document.getElementById('allProductGrid');
+
+    if (homeGrid) homeGrid.innerHTML = products.slice(0, 8).map(renderCard).join('');
+    if (allGrid) {
+        if (filtered.length > 0) {
+            allGrid.innerHTML = filtered.map(renderCard).join('');
+        } else {
+            allGrid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 50px; background: white; border-radius: 10px;">Không tìm thấy sản phẩm nào phù hợp!</div>`;
+        }
+    }
+}
+
+// MODAL CHI TIẾT
+function openDetailModal(id) {
+    const p = products.find(x => x.id === id);
+    if (!p) return;
+    const cat = categories.find(c => c.id === p.categoryId);
+
+    document.getElementById('detailImg').src = p.image || 'https://via.placeholder.com/500';
+    document.getElementById('detailCat').innerText = cat ? cat.name : '';
+    document.getElementById('detailName').innerText = p.name;
+    document.getElementById('detailPrice').innerHTML = `${formatVND(p.price)} ${p.oldPrice ? `<span style="font-size:14px; color:#94a3b8; text-decoration:line-through; margin-left:8px;">${formatVND(p.oldPrice)}</span>` : ''}`;
+    document.getElementById('detailStock').innerHTML = `<strong>Tình trạng:</strong> <span style="color:var(--success); font-weight:bold;">Còn hàng (Còn ${p.stock} sản phẩm trong kho)</span>`;
+    document.getElementById('detailDesc').innerText = p.desc || 'Đang cập nhật thông tin chi tiết.';
+    
+    document.getElementById('detailAddBtn').onclick = () => {
+        addToCart(p.id);
+        closeDetailModal();
+    };
+
+    document.getElementById('detailModal').classList.add('active');
+}
+
+function closeDetailModal() {
+    document.getElementById('detailModal').classList.remove('active');
+}
+
+// GIỎ HÀNG
+function addToCart(id) {
+    const p = products.find(x => x.id === id);
+    if (!p) return;
+
+    const existing = cart.find(x => x.id === id);
+    if (existing) {
+        existing.qty += 1;
+    } else {
+        cart.push({ id: p.id, name: p.name, price: p.price, image: p.image, qty: 1 });
+    }
+    saveAll();
+    renderCart();
+    showToast(`✓ Đã thêm "${p.name}" vào giỏ hàng!`);
+}
+
+function updateCartQty(id, delta) {
+    const item = cart.find(x => x.id === id);
+    if (item) {
+        item.qty += delta;
+        if (item.qty <= 0) cart = cart.filter(x => x.id !== id);
+    }
+    saveAll();
+    renderCart();
+}
+
+function removeFromCart(id) {
+    cart = cart.filter(x => x.id !== id);
+    saveAll();
+    renderCart();
+}
+
+function clearCart() {
+    if (confirm("Xóa toàn bộ sản phẩm trong giỏ hàng?")) {
+        cart = [];
+        saveAll();
+        renderCart();
+    }
+}
+
+function renderCart() {
+    const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+    document.getElementById('cartBadge').innerText = totalCount;
+
+    const emptyBox = document.getElementById('cartEmptyState');
+    const contentBox = document.getElementById('cartContentWrapper');
+    const tbody = document.getElementById('cartTableBody');
+    const totalDisp = document.getElementById('cartTotalDisplay');
+    const subtotalDisp = document.getElementById('cartSubtotalDisplay');
+
+    if (cart.length === 0) {
+        if (emptyBox) emptyBox.style.display = 'block';
+        if (contentBox) contentBox.style.display = 'none';
+        return;
+    }
+
+    if (emptyBox) emptyBox.style.display = 'none';
+    if (contentBox) contentBox.style.display = 'grid';
+
+    let totalMoney = 0;
+    let html = '';
+    cart.forEach(item => {
+        const subtotal = item.price * item.qty;
+        totalMoney += subtotal;
+        html += `
+            <tr>
+                <td><img src="${item.image || 'https://via.placeholder.com/80'}" style="width: 55px; height: 42px; object-fit: cover; border-radius: 6px;"></td>
+                <td><strong>${item.name}</strong></td>
+                <td>${formatVND(item.price)}</td>
+                <td style="text-align: center;">
+                    <button class="btn btn-secondary btn-sm" onclick="updateCartQty(${item.id}, -1)">-</button>
+                    <span style="margin: 0 8px; font-weight: bold;">${item.qty}</span>
+                    <button class="btn btn-secondary btn-sm" onclick="updateCartQty(${item.id}, 1)">+</button>
+                </td>
+                <td style="font-weight: 800; color: var(--danger);">${formatVND(subtotal)}</td>
+                <td style="text-align: center;">
+                    <button class="btn btn-secondary btn-sm" style="color: var(--danger);" onclick="removeFromCart(${item.id})">✕</button>
+                </td>
+            </tr>
+        `;
+    });
+
+    if (tbody) tbody.innerHTML = html;
+    if (totalDisp) totalDisp.innerText = formatVND(totalMoney);
+    if (subtotalDisp) subtotalDisp.innerText = formatVND(totalMoney);
+}
+
+function handleCheckout(e) {
+    e.preventDefault();
+    if (cart.length === 0) {
+        alert("Giỏ hàng của bạn đang trống!");
+        return;
+    }
+
+    const name = document.getElementById('orderCustomerName').value.trim();
+    const phone = document.getElementById('orderCustomerPhone').value.trim();
+    const address = document.getElementById('orderCustomerAddress').value.trim();
+    const payment = document.getElementById('orderPaymentMethod').value;
+    const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+
+    const newOrder = {
+        id: Math.floor(1000 + Math.random() * 9000),
+        customerName: name,
+        phone: phone,
+        address: address,
+        payment: payment,
+        status: "Chờ xử lý",
+        total: total,
+        items: [...cart]
+    };
+
+    orders.unshift(newOrder);
+    cart = [];
+    saveAll();
+    renderAll();
+
+    alert(`🎉 ĐẶT HÀNG THÀNH CÔNG!\n\nMã đơn hàng của bạn là: #TS-${newOrder.id}\nNgười nhận: ${name}\nTổng thanh toán: ${formatVND(total)}\n\nĐơn hàng đã được ghi nhận vào trang Quản trị Admin.`);
+    switchTab('home');
+}
+
+// ADMIN (CRUD)
+function renderAdmin() {
+    document.getElementById('statTotalProducts').innerText = products.length;
+    document.getElementById('statTotalCategories').innerText = categories.length;
+    document.getElementById('statTotalOrders').innerText = orders.length;
+
+    const totalRev = orders.filter(o => o.status !== 'Hủy').reduce((sum, o) => sum + o.total, 0);
+    document.getElementById('statTotalRevenue').innerText = formatVND(totalRev);
+
+    const pTable = document.getElementById('adminProductsTable');
+    if (pTable) {
+        pTable.innerHTML = products.map(p => {
+            const cat = categories.find(c => c.id === p.categoryId);
+            return `
+                <tr>
+                    <td>${p.id}</td>
+                    <td><img src="${p.image || 'https://via.placeholder.com/80'}" style="width: 50px; height: 40px; object-fit: cover; border-radius: 4px;"></td>
+                    <td><strong>${p.name}</strong></td>
+                    <td><span style="background: #e2e8f0; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight:600;">${cat ? cat.name : '—'}</span></td>
+                    <td style="font-weight: 800; color: var(--danger);">${formatVND(p.price)}</td>
+                    <td style="text-align: center;"><strong>${p.stock}</strong></td>
+                    <td style="text-align: center;">
+                        <button class="btn btn-secondary btn-sm" onclick="openEditProductModal(${p.id})">✏ Sửa</button>
+                        <button class="btn btn-danger btn-sm" onclick="deleteProduct(${p.id})">🗑 Xóa</button>
+                    </td>
+                </tr>
+            `;
+        }).join('');
+    }
+
+    const oTable = document.getElementById('adminOrdersTable');
+    if (oTable) {
+        oTable.innerHTML = orders.map(o => `
+            <tr>
+                <td><strong>#TS-${o.id}</strong></td>
+                <td>${o.customerName}</td>
+                <td>${o.phone}</td>
+                <td>${o.address}</td>
+                <td style="font-weight: 800; color: var(--danger);">${formatVND(o.total)}</td>
+                <td><span style="background: #e0f2fe; color: #0369a1; padding: 3px 8px; border-radius: 4px; font-size: 12px; font-weight: 800;">${o.status}</span></td>
+                <td style="text-align: center;">
+                    <select class="form-control" style="padding: 4px 6px; font-size: 12px;" onchange="updateOrderStatus(${o.id}, this.value)">
+                        <option value="Chờ xử lý" ${o.status === 'Chờ xử lý' ? 'selected' : ''}>Chờ xử lý</option>
+                        <option value="Đang giao hàng" ${o.status === 'Đang giao hàng' ? 'selected' : ''}>Đang giao hàng</option>
+                        <option value="Đã hoàn thành" ${o.status === 'Đã hoàn thành' ? 'selected' : ''}>Đã hoàn thành</option>
+                        <option value="Hủy" ${o.status === 'Hủy' ? 'selected' : ''}>Hủy</option>
+                    </select>
+                </td>
+            </tr>
+        `).join('');
+    }
+}
+
+function openAddProductModal() {
+    document.getElementById('modalTitle').innerText = "+ Thêm Sản Phẩm Mới (CREATE)";
+    document.getElementById('prodFormId').value = '';
+    document.getElementById('prodFormName').value = '';
+    document.getElementById('prodFormCategory').value = categories[0]?.id || 1;
+    document.getElementById('prodFormPrice').value = '';
+    document.getElementById('prodFormStock').value = '10';
+    document.getElementById('prodFormImage').value = '';
+    document.getElementById('prodFormDesc').value = '';
+    document.getElementById('productModal').classList.add('active');
+}
+
+function openEditProductModal(id) {
+    const p = products.find(x => x.id === id);
+    if (!p) return;
+    document.getElementById('modalTitle').innerText = "✏ Sửa Sản Phẩm ID: " + p.id + " (UPDATE)";
+    document.getElementById('prodFormId').value = p.id;
+    document.getElementById('prodFormName').value = p.name;
+    document.getElementById('prodFormCategory').value = p.categoryId;
+    document.getElementById('prodFormPrice').value = p.price;
+    document.getElementById('prodFormStock').value = p.stock;
+    document.getElementById('prodFormImage').value = p.image || '';
+    document.getElementById('prodFormDesc').value = p.desc || '';
+    document.getElementById('productModal').classList.add('active');
+}
+
+function closeProductModal() {
+    document.getElementById('productModal').classList.remove('active');
+}
+
+function handleSaveProduct(e) {
+    e.preventDefault();
+    const id = document.getElementById('prodFormId').value;
+    const name = document.getElementById('prodFormName').value.trim();
+    const categoryId = parseInt(document.getElementById('prodFormCategory').value);
+    const price = parseFloat(document.getElementById('prodFormPrice').value);
+    const stock = parseInt(document.getElementById('prodFormStock').value);
+    const image = document.getElementById('prodFormImage').value.trim() || 'https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=500';
+    const desc = document.getElementById('prodFormDesc').value.trim();
+
+    if (id) {
+        const p = products.find(x => x.id == id);
+        if (p) {
+            p.name = name;
+            p.categoryId = categoryId;
+            p.price = price;
+            p.stock = stock;
+            p.image = image;
+            p.desc = desc;
+            showToast("✓ Đã cập nhật sản phẩm thành công!");
+        }
+    } else {
+        const newId = products.length > 0 ? Math.max(...products.map(x => x.id)) + 1 : 1;
+        products.unshift({ id: newId, categoryId, name, price, stock, image, desc, rating: 5.0, reviews: 1 });
+        showToast("✓ Đã thêm sản phẩm mới thành công!");
+    }
+
+    saveAll();
+    closeProductModal();
+    renderAll();
+}
+
+function deleteProduct(id) {
+    if (confirm("Bạn có chắc chắn muốn XÓA sản phẩm này khỏi hệ thống?")) {
+        products = products.filter(x => x.id !== id);
+        saveAll();
+        renderAll();
+        showToast("✓ Đã xóa sản phẩm thành công!");
+    }
+}
+
+function updateOrderStatus(id, newStatus) {
+    const o = orders.find(x => x.id === id);
+    if (o) {
+        o.status = newStatus;
+        saveAll();
+        renderAdmin();
+        showToast(`✓ Đã đổi đơn #TS-${id} sang "${newStatus}"!`);
+    }
+}
+
+function handleContact(e) {
+    e.preventDefault();
+    alert("✓ Cảm ơn bạn! Thông tin liên hệ đã được gửi thành công đến bộ phận hỗ trợ TechStore HUBT.");
+    document.getElementById('contactName').value = '';
+    document.getElementById('contactEmail').value = '';
+    document.getElementById('contactMsg').value = '';
+}
+
+function renderAll() {
+    renderCategories();
+    renderProducts();
+    renderCart();
+    renderAdmin();
+}
+
+renderAll();
+</script>
+</body>
+</html>
