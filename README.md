@@ -18,9 +18,9 @@
 </div>
 
 ### 👨‍💻 THÔNG TIN ĐỒ ÁN
-* 👤 **Sinh viên thực hiện:** [Điền Họ và tên của bạn]
-* 🆔 **Mã sinh viên:** [Điền Mã Sinh Viên của bạn]
-* 🏫 **Lớp chuyên ngành:** [Điền Lớp của bạn]
+* 👤 **Sinh viên thực hiện:** Nguyễn Văn Nguyên
+* 🆔 **Mã sinh viên:** [2924105788]
+* 🏫 **Lớp chuyên ngành:** [TH29.26]
 * 🏢 **Đơn vị:** Khoa Công Nghệ Thông Tin - HUBT
 * 💻 **Môn học:** Đồ án Lập trình phần mềm Web
 
